@@ -7,7 +7,7 @@
 
 .MPartStack {
   swt-tab-renderer: null;
-  swt-selected-tabs-background: #FFFFFF #ECE9D8 100%;
+  swt-selected-tabs-background: #FFFFFF #D6D2D0 100%;
   swt-simple: false;
   swt-mru-visible: true;
 }
@@ -18,11 +18,19 @@
 }
 
 #PerspectiveSwitcher  {
-	eclipse-perspective-keyline-color: #ECE9D8 #FFFFFF;
+	eclipse-perspective-keyline-color: #D6D2D0 #FFFFFF;
 }
 
 .MToolControl.TrimStack {
-	frame-image:  url(./winClassicTSFrame.png);
-	handle-image:  url(./winClassicHandle.png);
+	frame-image:  url('./winClassicTSFrame.png');
+	handle-image:  url('./winClassicHandle.png');
 	frame-cuts: 5px 1px 5px 16px;
+}
+
+.MToolBar.Draggable {
+	handle-image:  url('./dragHandle.png');
+}
+
+.MToolControl.Draggable {
+	handle-image:  url('./dragHandle.png');
 }

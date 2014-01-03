@@ -5,7 +5,6 @@ import org.eclipse.e4.ui.model.application.MAddon;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.MApplicationFactory;
 
-@SuppressWarnings("restriction")
 public class AddonProcessor {
 	@Execute
 	void addAddon(MApplication application) {
@@ -14,7 +13,7 @@ public class AddonProcessor {
 				return;
 			}
 		}
-		
+
 		MAddon a = MApplicationFactory.INSTANCE.createAddon();
 		a.setContributionURI("bundleclass://at.bestsolution.e4.theme.css/at.bestsolution.e4.theme.css.internal.ColorRegisterAddon");
 		application.getAddons().add(a);
