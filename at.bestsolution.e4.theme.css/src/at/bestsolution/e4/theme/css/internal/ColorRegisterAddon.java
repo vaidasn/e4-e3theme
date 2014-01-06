@@ -26,19 +26,19 @@ public class ColorRegisterAddon {
 	@PostConstruct
 	void init() {
 		Display d = Display.getCurrent();
-		System.err.println("==================> Initing with Display: " + d );
+//		System.err.println("==================> Initing with Display: " + d );
 		try {
 			Field f = CSS2ColorHelper.class.getDeclaredField("colorNamesMap");
 			f.setAccessible(true);
 			@SuppressWarnings("unchecked")
 			Map<String,String> colorNamesMap = (Map<String, String>) f.get(null);
-			
+
 			f = CSS2ColorHelper.class.getDeclaredField("colorHexasMap");
 			f.setAccessible(true);
 			@SuppressWarnings("unchecked")
 			Map<String,String> colorHexasMap = (Map<String, String>) f.get(null);
-			
-			
+
+
 			for( ColorProvider p : getProviders() ) {
 				for( Entry<String, RGB> e : p.getColors(d).entrySet() ) {
 					String name = e.getKey().toLowerCase();
@@ -47,22 +47,22 @@ public class ColorRegisterAddon {
 					colorHexasMap.put(hexColor, name);
 				}
 			}
-			
+
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 
 	private static String toHex(RGB rgb) {
 		return "#" + hexValue(rgb.red) + hexValue(rgb.green) + hexValue(rgb.blue);
 	}
-	
+
 	private static String hexValue(int i) {
 		String s = Integer.toHexString(i);
 		return s.length() == 1 ? "0"+s : s;
 	}
-	
+
 	private List<ColorProvider> getProviders() {
 		List<ColorProvider> l = new ArrayList<ColorProvider>();
 		Bundle b = FrameworkUtil.getBundle(ColorRegisterAddon.class);
@@ -75,7 +75,7 @@ public class ColorRegisterAddon {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return l;
 	}
 }

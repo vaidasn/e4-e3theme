@@ -16,13 +16,19 @@ public class E3ColorProvider implements ColorProvider {
 	public Map<String, RGB> getColors(Display d) {
 		Map<String, RGB> map = new HashMap<String, RGB>();
 //		map.put("ACTIVE_TAB_TEXT_COLOR", ColorUtil.getLightenedColor(d, SWT.COLOR_TITLE_FOREGROUND));
-		
+
 		RGB endColor = ColorUtil.getLightenedColor(d, SWT.COLOR_TITLE_BACKGROUND);
-		RGB startColor = ColorUtil.blend(ColorUtil.white, endColor, 75);
-		
+		RGB startColor = ColorUtil.blend(endColor, ColorUtil.white, SWT.COLOR_TITLE_BACKGROUND_GRADIENT);
+
 		map.put("activeTabBgEnd", endColor);
 		map.put("activeTabBgStart", startColor);
-		
+
+	    RGB inactiveEndColor = ColorUtil.getLightenedColor(d, SWT.COLOR_TITLE_INACTIVE_BACKGROUND);
+	    RGB inactiveStartColor = ColorUtil.blend(inactiveEndColor, ColorUtil.white, SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT);
+
+        map.put("inactiveTabBgEnd", inactiveEndColor);
+        map.put("inactiveTabBgStart", inactiveStartColor);
+
 		return map;
 	}
 

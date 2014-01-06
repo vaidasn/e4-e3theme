@@ -7,7 +7,7 @@
 
 .MPartStack {
   swt-tab-renderer: null;
-  swt-selected-tabs-background: #FFFFFF #D6D2D0 100%;
+  swt-selected-tabs-background: inactiveTabBgStart inactiveTabBgEnd 100%;
   swt-simple: false;
   swt-mru-visible: true;
 }
@@ -18,7 +18,7 @@
 }
 
 #PerspectiveSwitcher  {
-	eclipse-perspective-keyline-color: #D6D2D0 #FFFFFF;
+	eclipse-perspective-keyline-color: inactiveTabBgEnd inactiveTabBgStart;
 }
 
 .MToolControl.TrimStack {
